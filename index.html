@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KNJ Hub Wholesale</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --navy: #0d1b2a;
+    --navy-light: #1a2e44;
+    --gold: #c9972b;
+    --gold-light: #e8b84b;
+    --gold-pale: #f5d98a;
+    --cream: #fdf6e3;
+    --white: #ffffff;
+    --text-dark: #1a1a2e;
+    --text-muted: #6b7280;
+    --border: #e5e0d5;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #f8f5f0;
+    max-width: 430px;
+    margin: 0 auto;
+    min-height: 100vh;
+    padding-bottom: 70px;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    background: var(--navy);
+    padding: 14px 16px 10px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+  }
+
+  .header-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+  }
+
+  .hamburger {
+    color: var(--white);
+    font-size: 22px;
+    cursor: pointer;
+    padding: 4px;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+  }
+
+  .logo-icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .logo-text {
+    line-height: 1.1;
+  }
+
+  .logo-text .knj {
+    font-family: 'Cinzel', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: 1px;
+  }
+
+  .logo-text .hub {
+    font-family: 'Cinzel', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--gold);
+    letter-spacing: 1px;
+  }
+
+  .logo-text .wholesale {
+    font-size: 9px;
+    color: #8fa8c0;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    display: block;
+    text-align: center;
+  }
+
+  .header-icons {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+  }
+
+  .icon-btn {
+    color: var(--white);
+    font-size: 20px;
+    cursor: pointer;
+    position: relative;
+  }
+
+  .badge {
+    position: absolute;
+    top: -5px;
+    right: -6px;
+    background: var(--gold);
+    color: var(--navy);
+    font-size: 9px;
+    font-weight: 700;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* ── SEARCH ── */
+  .search-bar {
+    display: flex;
+    background: var(--white);
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid rgba(201,151,43,0.3);
+  }
+
+  .search-bar input {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 11px 14px;
+    font-size: 13px;
+    color: var(--text-dark);
+    font-family: 'Inter', sans-serif;
+  }
+
+  .search-bar input::placeholder { color: #9ca3af; }
+
+  .search-btn {
+    background: var(--gold);
+    border: none;
+    padding: 11px 16px;
+    cursor: pointer;
+    color: var(--white);
+    font-size: 16px;
+  }
+
+  /* ── HERO BANNER ── */
+  .hero {
+    position: relative;
+    background: linear-gradient(135deg, #0d1b2a 0%, #1a3a5c 50%, #0d2a1a 100%);
+    padding: 28px 20px;
+    overflow: hidden;
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c9972b' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  .hero-smoke {
+    position: absolute;
+    right: -10px;
+    top: 0;
+    bottom: 0;
+    width: 55%;
+    background: linear-gradient(to left, transparent, rgba(13,27,42,0.5));
+    z-index: 1;
+  }
+
+  .hero-bottles {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 80px;
+    opacity: 0.15;
+    z-index: 0;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 55%;
+  }
+
+  .hero-tag {
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: var(--gold-light);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+
+  .hero h1 {
+    font-family: 'Cinzel', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--gold);
+    line-height: 1.2;
+    margin-bottom: 6px;
+  }
+
+  .hero h1 span { color: var(--white); }
+
+  .hero p {
+    font-size: 11px;
+    color: #8fa8c0;
+    line-height: 1.5;
+    margin-bottom: 16px;
+  }
+
+  .hero-btn {
+    display: inline-block;
+    border: 1.5px solid var(--gold);
+    color: var(--gold);
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-decoration: none;
+  }
+
+  .hero-btn:hover {
+    background: var(--gold);
+    color: var(--navy);
+  }
+
+  /* Decorative bottles SVG area */
+  .hero-visual {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .bottle-shape {
+    background: linear-gradient(180deg, #1a4a7a, #0d2a4a);
+    border: 1px solid rgba(201,151,43,0.4);
+    border-radius: 8px 8px 4px 4px;
+    position: relative;
+  }
+
+  .bottle-lg {
+    width: 38px;
+    height: 80px;
+    border-radius: 10px 10px 6px 6px;
+  }
+
+  .bottle-md {
+    width: 28px;
+    height: 60px;
+    border-radius: 12px 12px 6px 6px;
+    background: linear-gradient(180deg, #2a1a4a, #1a0d3a);
+  }
+
+  .bottle-sm {
+    width: 22px;
+    height: 50px;
+    border-radius: 14px 14px 6px 6px;
+    background: linear-gradient(180deg, #1a3a2a, #0d2a1a);
+  }
+
+  .bottles-row {
+    display: flex;
+    align-items: flex-end;
+    gap: 6px;
+  }
+
+  /* Smoke effect */
+  .smoke {
+    position: absolute;
+    top: 10px;
+    right: 60px;
+    width: 2px;
+    height: 30px;
+    background: linear-gradient(to top, transparent, rgba(201,151,43,0.3), transparent);
+    border-radius: 50%;
+    animation: smokeRise 3s ease-in-out infinite;
+  }
+
+  .smoke:nth-child(2) {
+    right: 75px;
+    animation-delay: 1s;
+    height: 20px;
+  }
+
+  @keyframes smokeRise {
+    0% { opacity: 0; transform: translateY(0) scaleX(1); }
+    50% { opacity: 1; transform: translateY(-10px) scaleX(2); }
+    100% { opacity: 0; transform: translateY(-20px) scaleX(0.5); }
+  }
+
+  /* ── SECTION TITLE ── */
+  .section-title {
+    text-align: center;
+    padding: 20px 16px 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+  }
+
+  .section-title::before,
+  .section-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold));
+  }
+
+  .section-title::after {
+    background: linear-gradient(to left, transparent, var(--gold));
+  }
+
+  .section-title h2 {
+    font-family: 'Cinzel', serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text-dark);
+    letter-spacing: 2px;
+    white-space: nowrap;
+  }
+
+  /* ── CATEGORIES GRID ── */
+  .categories {
+    padding: 0 12px 16px;
+  }
+
+  .cat-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+  }
+
+  .cat-card {
+    background: var(--white);
+    border-radius: 12px;
+    padding: 10px 6px 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: 1px solid var(--border);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  }
+
+  .cat-card:hover {
+    border-color: var(--gold);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(201,151,43,0.15);
+  }
+
+  .cat-img {
+    width: 60px;
+    height: 60px;
+    border-radius: 8px;
+    object-fit: cover;
+    background: linear-gradient(135deg, #f0ebe0, #e8e0d0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    overflow: hidden;
+  }
+
+  .cat-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+
+  .cat-name {
+    font-size: 9.5px;
+    font-weight: 500;
+    color: var(--text-dark);
+    text-align: center;
+    line-height: 1.3;
+  }
+
+  /* ── FEATURED STRIP ── */
+  .featured-strip {
+    margin: 4px 12px 16px;
+    background: linear-gradient(135deg, var(--navy), #1a3a5c);
+    border-radius: 14px;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .featured-strip::after {
+    content: '✦';
+    position: absolute;
+    right: 80px;
+    font-size: 60px;
+    color: rgba(201,151,43,0.08);
+  }
+
+  .featured-text h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 14px;
+    color: var(--gold);
+    margin-bottom: 4px;
+  }
+
+  .featured-text p {
+    font-size: 10px;
+    color: #8fa8c0;
+    line-height: 1.4;
+  }
+
+  .featured-btn {
+    background: var(--gold);
+    color: var(--navy);
+    border: none;
+    padding: 8px 14px;
+    border-radius: 8px;
+    font-size: 10px;
+    font-weight: 700;
+    cursor: pointer;
+    white-space: nowrap;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: 0.5px;
+  }
+
+  /* ── BOTTOM NAV ── */
+  .bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 430px;
+    background: var(--white);
+    border-top: 1px solid var(--border);
+    display: flex;
+    z-index: 100;
+    box-shadow: 0 -2px 12px rgba(0,0,0,0.08);
+  }
+
+  .nav-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 0 8px;
+    cursor: pointer;
+    gap: 3px;
+    transition: all 0.2s;
+  }
+
+  .nav-icon {
+    font-size: 20px;
+    color: #9ca3af;
+    line-height: 1;
+  }
+
+  .nav-label {
+    font-size: 10px;
+    color: #9ca3af;
+    font-weight: 400;
+  }
+
+  .nav-item.active .nav-icon,
+  .nav-item.active .nav-label {
+    color: var(--gold);
+  }
+
+  .nav-item.active .nav-label {
+    font-weight: 600;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 360px) {
+    .cat-img { width: 52px; height: 52px; font-size: 24px; }
+    .cat-name { font-size: 8.5px; }
+    .hero h1 { font-size: 19px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header-top">
+    <div class="hamburger">☰</div>
+
+    <a class="logo" href="#">
+      <!-- KNJ Crystal Logo SVG -->
+      <svg class="logo-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="20,2 32,10 32,26 20,34 8,26 8,10" fill="none" stroke="#c9972b" stroke-width="1.5"/>
+        <polygon points="20,6 28,12 28,24 20,30 12,24 12,12" fill="#1a3a5c" stroke="#4a90d9" stroke-width="1"/>
+        <polygon points="20,2 28,12 20,10" fill="#4a90d9" opacity="0.8"/>
+        <polygon points="20,2 12,12 20,10" fill="#2a6ab0" opacity="0.9"/>
+        <polygon points="20,10 28,12 28,24 20,30 12,24 12,12" fill="#1a3a5c"/>
+        <line x1="20" y1="10" x2="20" y2="30" stroke="#c9972b" stroke-width="0.5" opacity="0.5"/>
+        <line x1="12" y1="12" x2="28" y2="24" stroke="#4a90d9" stroke-width="0.5" opacity="0.3"/>
+        <line x1="28" y1="12" x2="12" y2="24" stroke="#4a90d9" stroke-width="0.5" opacity="0.3"/>
+      </svg>
+      <div class="logo-text">
+        <span><span class="knj">KNJ</span><span class="hub">Hub</span></span>
+        <span class="wholesale">Wholesale</span>
+      </div>
+    </a>
+
+    <div class="header-icons">
+      <div class="icon-btn">
+        🤍
+        <span class="badge">0</span>
+      </div>
+      <div class="icon-btn">
+        🛒
+        <span class="badge">0</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Search -->
+  <div class="search-bar">
+    <input type="text" placeholder="Search for Attars, Oils, Bottles & more...">
+    <button class="search-btn">🔍</button>
+  </div>
+</header>
+
+<!-- HERO BANNER -->
+<section class="hero">
+  <div class="smoke"></div>
+  <div class="smoke"></div>
+  <div class="hero-content">
+    <p class="hero-tag">✦ New Arrivals 2025</p>
+    <h1>Premium Attars<br><span>& Fragrance</span><br>Collection</h1>
+    <p>Quality you can trust,<br>Fragrance that lasts.</p>
+    <a href="#" class="hero-btn">Explore Collection</a>
+  </div>
+  <div class="hero-visual">
+    <div class="bottles-row">
+      <div class="bottle-sm"></div>
+      <div class="bottle-lg"></div>
+      <div class="bottle-md"></div>
+    </div>
+  </div>
+</section>
+
+<!-- SHOP BY CATEGORY -->
+<div class="section-title">
+  <h2>SHOP BY CATEGORY</h2>
+</div>
+
+<section class="categories">
+  <div class="cat-grid">
+
+    <div class="cat-card">
+      <div class="cat-img">🌹</div>
+      <span class="cat-name">1. Attar &amp; Perfume Oils</span>
+    </div>
+
+    <div class="cat-card">
+      <div class="cat-img">🏺</div>
+      <span class="cat-name">2. Bottles &amp; Packaging</span>
+    </div>
+
+    <div class="cat-card">
+      <div class="cat-img">🧪</div>
+      <span class="cat-name">3. Raw Materials</span>
+    </div>
+
+    <div class="cat-card">
+      <div class="cat-img">🕯️</div>
+      <span class="cat-name">4. Home Fragrance</span>
+    </div>
+
+    <div class="cat-card">
+      <div class="cat-img">💆</div>
+      <span class="cat-name">5. Beauty &amp; Grooming</span>
+    </div>
+
+    <div class="cat-card">
+      <div class="cat-img">🎁</div>
+      <span class="cat-name">6. Gifting &amp; Accessories</span>
+    </div>
+
+    <div class="cat-card">
+      <div class="cat-img">🪔</div>
+      <span class="cat-name">Bakhoor Dani</span>
+    </div>
+
+    <div class="cat-card">
+      <div class="cat-img">🤎</div>
+      <span class="cat-name">Bakhoor</span>
+    </div>
+
+    <div class="cat-card">
+      <div class="cat-img">🧴</div>
+      <span class="cat-name">Aluminum Bottle</span>
+    </div>
+
+    <div class="cat-card">
+      <div class="cat-img">✨</div>
+      <span class="cat-name">Fancy Attar Bottles</span>
+    </div>
+
+    <div class="cat-card">
+      <div class="cat-img">🌸</div>
+      <span class="cat-name">Inspired Perfume Oils</span>
+    </div>
+
+    <div class="cat-card">
+      <div class="cat-img">💍</div>
+      <span class="cat-name">Nikah Gifting Attar Bottles</span>
+    </div>
+
+    <div class="cat-card">
+      <div class="cat-img">📦</div>
+      <span class="cat-name">Ready Attar Box</span>
+    </div>
+
+    <div class="cat-card">
+      <div class="cat-img">🪵</div>
+      <span class="cat-name">Bakhoor / Oud Chips</span>
+    </div>
+
+    <div class="cat-card">
+      <div class="cat-img">🌿</div>
+      <span class="cat-name">Roll-On Perfume</span>
+    </div>
+
+    <div class="cat-card">
+      <div class="cat-img">🔩</div>
+      <span class="cat-name">Metallic Caps</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- FEATURED STRIP -->
+<div class="featured-strip">
+  <div class="featured-text">
+    <h3>Wholesale Orders</h3>
+    <p>Min order 500ml+<br>Best bulk pricing</p>
+  </div>
+  <button class="featured-btn">Get Quote →</button>
+</div>
+
+<!-- BOTTOM NAV -->
+<nav class="bottom-nav">
+  <div class="nav-item active">
+    <span class="nav-icon">🏠</span>
+    <span class="nav-label">Home</span>
+  </div>
+  <div class="nav-item">
+    <span class="nav-icon">⊞</span>
+    <span class="nav-label">Categories</span>
+  </div>
+  <div class="nav-item">
+    <span class="nav-icon">✦</span>
+    <span class="nav-label">Brand</span>
+  </div>
+  <div class="nav-item">
+    <span class="nav-icon">👤</span>
+    <span class="nav-label">Account</span>
+  </div>
+</nav>
+
+</body>
+</html>
